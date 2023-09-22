@@ -1,14 +1,18 @@
 import React from 'react'
 import styled from "styled-components"
+import { Bounce } from "react-awesome-reveal";
 
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg }) {
   return (
-    <Wrap bgImage={backgroundImg}>
-       <ItemText>
-        <h1>{ title }</h1>
-        <p>{ description }</p>
-       </ItemText>
+    <Wrap bgimage={backgroundImg}>
+        <Bounce down>
+           <ItemText>
+             <h1>{ title }</h1>
+             <p>{ description }</p>
+           </ItemText>
+       </Bounce>
        <Buttons>
+        <Bounce down>
        <ButtonGroup>
         <LeftButton>
            { leftBtnText }
@@ -20,6 +24,7 @@ function Section({ title, description, leftBtnText, rightBtnText, backgroundImg 
          }
        
        </ButtonGroup>
+       </Bounce>
        <DownArrow src="/TCImages/images/down-arrow.svg" />
        </Buttons>
 
@@ -40,12 +45,13 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: ${props => `url("/TCImages/images/${props.bgImage}")`}
+  background-image: ${props => `url("/TCImages/images/${props.bgimage}")`}
 `
 
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  z-index: 10;
 `
 
 const ButtonGroup = styled.div`
